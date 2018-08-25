@@ -148,8 +148,8 @@ if __name__ == '__main__':
         #
         try:
             report = report_manager.report(back)
-        except Exception as report:
-            print(report)
+        except Exception as e:
+            await bot.say(e)
         #
         if len(report) > 2000:
             r = [report[r:r+2000] for r in range(0, len(report), 2000)]
