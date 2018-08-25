@@ -145,7 +145,12 @@ if __name__ == '__main__':
     @bot.command()
     async def report(back:int=1):
         await bot.say("Собираю отчет")
-        report = report_manager.report(back)
+        #
+        try:
+            report = report_manager.report(back)
+        except Exception as e:
+            print(e)
+        #
         if len(report) > 2000:
             r = [report[r:r+2000] for r in range(0, len(report), 2000)]
         else:
